@@ -8,7 +8,9 @@ const app = express();
 const bodyParser = require('body-parser')
 /* Middleware*/
 //Here we are configuring express to use body-parser as middle-ware.
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({
+    extended: false
+}));
 app.use(bodyParser.json());
 // Cors for cross origin allowance
 const cors = require('cors');
@@ -27,20 +29,25 @@ function listening() {
     console.log(`running on localhost: ${port}`)
 };
 
-// TODO-ROUTES!
+
+/* 
+1. Routes & GET Requests
+TODO-ROUTES! */
+// respond with "hello world" when a GET request is made to the homepage
 app.get('/', function (req, res) {
     res.send('hello world');
 });
 
 // POST method route
-app.post('/', function (req, res){
+app.post('/', function (req, res) {
     res.send('POST received')
 });
 
 //Setup a basic POST route in the server side code
 const data = [];
 app.post('/addMovie', addMovie)
-function addMovie (req, res){
+
+function addMovie(req, res) {
     data.push(req.body)
     console.log(data)
 }
