@@ -29,6 +29,12 @@ function listening() {
     console.log(`running on localhost: ${port}`)
 };
 
+// Create JS object
+const appData = {}
+// Respond with JS object when a GET request is made to the homepage
+app.get('/all', function (req, res) {
+  res.send(appData)
+})
 
 /* 
 1. Routes & GET Requests
